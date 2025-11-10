@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hexagon - Blue & Black Edition</title>
+<meta name="description" content="Hexagon - cutting-edge tool for script execution.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+:root {
+    --primary-color: #00bfff;     /* Electric blue (Arch/Kali inspired) */
+    --secondary-color: #008080;   /* Dark cyan accent */
+    --dark-color: #0a0a0a;        /* Deep black background */
+    --text-color: #d0d0d0;        /* Light gray text */
+    --card-bg: #11171a;           /* Dark card background */
+    --hover-glow: rgba(0,191,255,0.6); /* Blue glow effect */
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body{background-color:var(--dark-color);color:var(--text-color);overflow-x:hidden;}
+
+/* Navbar */
+.navbar{width:100%;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;background:#050505;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,191,255,0.1);}
+.logo-container{display:flex;align-items:center;gap:0.5rem;}
+.logo-img{width:40px;height:40px;}
+.logo{color:var(--primary-color);font-size:1.5rem;font-weight:700;}
+.nav-links{display:flex;list-style:none;gap:2rem;}
+.nav-links a{color:var(--text-color);text-decoration:none;font-weight:500;transition:color 0.3s;}
+.nav-links a:hover{color:var(--primary-color);}
+
+/* Hero */
+.hero{min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:2rem;}
+.hero h2{font-size:3rem;color:var(--primary-color);margin-bottom:1rem;animation:fadeInDown 1s;}
+.hero p{font-size:1.2rem;margin-bottom:2rem;max-width:600px;margin:auto;color:#a0a0a0;animation:fadeIn 1.2s;}
+.discord-btn{background:var(--secondary-color);color:#fff;padding:0.8rem 2rem;border-radius:12px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:all 0.3s;animation:fadeInUp 1.5s;}
+.discord-btn:hover{background:var(--primary-color);color:var(--dark-color);box-shadow:0 0 20px var(--primary-color);}
+
+/* Features Section */
+.features-section{padding:6rem 2rem;text-align:center;}
+.features-section h2{font-size:2.5rem;margin-bottom:3rem;color:var(--primary-color);}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;}
+
+/* Feature Cards */
+.feature-card{background:var(--card-bg);border-radius:16px;padding:2rem 1.5rem;transition:transform 0.3s,box-shadow 0.3s,filter 0.3s;opacity:0;transform:translateY(30px);}
+.feature-card i{font-size:2.5rem;color:var(--primary-color);margin-bottom:1rem;}
+.feature-card h3{font-size:1.5rem;margin-bottom:1rem;}
+.feature-card p{color:#aaa;}
+.feature-card:hover{transform:translateY(-15px) scale(1.05);box-shadow:0 10px 40px var(--hover-glow);filter:drop-shadow(0 0 10px var(--primary-color));}
+
+/* Download CTA */
+.download-cta{padding:4rem 2rem;text-align:center;background:#050505;}
+.download-cta h2{font-size:2rem;margin-bottom:1rem;color:var(--primary-color);}
+.download-cta p{margin-bottom:2rem;color:#888;}
+.btn{display:inline-block;padding:0.8rem 2rem;border-radius:12px;font-weight:600;text-decoration:none;transition:all 0.3s ease;}
+.btn-secondary{background:var(--primary-color);color:var(--dark-color);}
+.btn-secondary:hover{background:var(--secondary-color);color:#fff;box-shadow:0 0 20px var(--primary-color);}
+
+/* Footer */
+footer{background:#000;padding:1.5rem 2rem;text-align:center;color:#555;font-size:0.9rem;}
+
+/* Animations */
+@keyframes fadeIn {from{opacity:0;}to{opacity:1;}}
+@keyframes fadeInDown {from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeInUp {from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+/* Feature card reveal */
+.feature-card.show{opacity:1;transform:translateY(0);transition:all 0.6s ease-out;}
+
+/* Starfield Background */
+#stars{position:absolute;top:0;left:0;width:100%;height:100%;background:#000;z-index:-1;overflow:hidden;}
+.star{position:absolute;background:white;border-radius:50%;animation:twinkle 5s infinite;}
+@keyframes twinkle{0%,100%{opacity:0.2;}50%{opacity:1;}}
+
+/* Responsive */
+@media(max-width:768px){.hero h2{font-size:2.2rem;}.hero p{font-size:1rem;}}
+</style>
+</head>
+<body>
+
+<div id="stars"></div>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo-container">
+        <img src="/static/hexagon.png" alt="Hexagon Logo" class="logo-img">
+        <h1 class="logo">Hexagon</h1>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#download">Download</a></li>
+    </ul>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+    <div class="container">
+        <h2>Blue & Black Edition</h2>
+        <p>Fusing the elegance of macOS, the power of Kali Linux, and the minimalism of Arch Linux into a futuristic executor interface.</p>
+        <a href="https://discord.gg/PrBrVrH2WH" class="discord-btn">
+            <i class="fab fa-discord"></i> Join Discord
+        </a>
+    </div>
+</header>
+
+<!-- Features -->
+<main>
+<section id="features" class="features-section">
+    <div class="container">
+        <h2>Why Hexagon Blue & Black?</h2>
+        <div class="features-grid">
+            <div class="feature-card"><i class="fas fa-bolt"></i><h3>Blazing Fast</h3><p>Optimized for performance with low latency and maximum efficiency.</p></div>
+            <div class="feature-card"><i class="fas fa-shield-alt"></i><h3>Secure & Undetectable</h3><p>Advanced security protocols to keep your scripts safe.</p></div>
+            <div class="feature-card"><i class="fas fa-code"></i><h3>Script Hub</h3><p>Access a rich library of pre-built and community scripts.</p></div>
+            <div class="feature-card"><i class="fas fa-cogs"></i><h3>Fully Customizable</h3><p>Tailor the executor interface to match your workflow.</p></div>
+            <div class="feature-card"><i class="fas fa-tachometer-alt"></i><h3>High Performance</h3><p>Run even the most complex scripts smoothly.</p></div>
+            <div class="feature-card"><i class="fas fa-users"></i><h3>Community Driven</h3><p>Collaborate with like-minded enthusiasts and share insights.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- Download CTA -->
+<section id="download" class="download-cta">
+    <div class="container">
+        <h2>Elevate Your Experience</h2>
+        <p>Get the Hexagon Blue & Black Edition today and experience sleek performance like never before.</p>
+        <a href="/static/Executor.zip" class="btn btn-secondary">Download Now <i class="fas fa-download"></i></a>
+    </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer>
+<div class="container">&copy; 2025 Hexagon. All Rights Reserved.</div>
+</footer>
+
+<script>
+// Scroll Animations
+const cards = document.querySelectorAll('.feature-card');
+window.addEventListener('scroll', () => {
+    const triggerBottom = window.innerHeight * 0.85;
+    cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if(cardTop < triggerBottom){
+            card.classList.add('show');
+        }
+    });
+});
+
+// Starfield
+const starsContainer = document.getElementById('stars');
+for(let i=0;i<120;i++){
+    const star = document.createElement('div');
+    star.className='star';
+    const size = Math.random()*2+1;
+    star.style.width=size+'px';
+    star.style.height=size+'px';
+    star.style.top=Math.random()*100+'%';
+    star.style.left=Math.random()*100+'%';
+    star.style.animationDuration=(Math.random()*5+3)+'s';
+    starsContainer.appendChild(star);
+}
+</script>
+
+</body>
+</html>
